@@ -54,7 +54,9 @@ app.post('/api/shorturl', (req, res) => {
 });
 
 app.get('/api/shorturl/:short_url', (req, res) => {
-  
+  const shorturl = req.params.short_url;
+  const url = temp[shorturl];
+  res.redirect(url);
 })
 
 app.listen(port, function() {
