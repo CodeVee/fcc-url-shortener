@@ -44,7 +44,11 @@ app.post('/api/shorturl', (req, res) => {
     let key = '';
     if (found) {
       key = found;
-    } 
+    } else {
+      key = (Object.keys(temp).length + 1).toString();
+      temp[key] = url;
+    }
+
     
   });
 });
