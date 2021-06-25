@@ -30,7 +30,15 @@ app.post('/api/shorturl', (req, res) => {
   if (!regex.test(url)) {
     res.json({error: 'invalid url'});
     return;
-  } 
+  }
+
+  const req_url = new URL(url).hostname;
+
+  dns.lookup(req_url, err => {
+    if (err) return res.json({error:'Invalid hostname'})
+    
+    
+  });
 });
 
 app.listen(port, function() {
