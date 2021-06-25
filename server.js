@@ -49,7 +49,7 @@ app.post('/api/shorturl', (req, res) => {
       temp[key] = url;
     }
 
-    
+    res.json({original_url: url, short_url: key});
   });
 });
 
