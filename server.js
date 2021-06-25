@@ -53,6 +53,10 @@ app.post('/api/shorturl', (req, res) => {
   });
 });
 
+app.get('/api/shorturl/:short_url', (req, res) => {
+  
+})
+
 app.listen(port, function() {
   console.log(`Listening on port ${port}`);
 });
