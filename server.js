@@ -23,7 +23,14 @@ app.get('/api/hello', function(req, res) {
 });
 
 app.post('/api/shorturl', (req, res) => {
+  const url = req.body.url;
 
+  const regex = new RegExp(/(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/);
+  
+  if (!regex.test(url)) {
+    res.json({error: 'invalid url'});
+    return;
+  } 
 });
 
 app.listen(port, function() {
