@@ -39,7 +39,7 @@ app.post('/api/shorturl', (req, res) => {
   dns.lookup(req_url, err => {
     if (err) return res.json({error:'Invalid hostname'})
     
-    const found = Object.keys(temp).find(k => temp[k] === url);
+    const found = Object.keys(temp).find(key => temp[key] === url);
 
     let key = '';
     if (found) {
